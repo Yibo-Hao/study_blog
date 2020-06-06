@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS专精-实现bind/apply/call</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/study_blog/assets/css/0.styles.26012ee8.css" as="style"><link rel="preload" href="/study_blog/assets/js/app.fa73ec29.js" as="script"><link rel="preload" href="/study_blog/assets/js/2.c359b067.js" as="script"><link rel="preload" href="/study_blog/assets/js/7.546e37c0.js" as="script"><link rel="prefetch" href="/study_blog/assets/js/10.711088b9.js"><link rel="prefetch" href="/study_blog/assets/js/11.4bc7751b.js"><link rel="prefetch" href="/study_blog/assets/js/12.6bd1c5ed.js"><link rel="prefetch" href="/study_blog/assets/js/13.68deeced.js"><link rel="prefetch" href="/study_blog/assets/js/14.315144b3.js"><link rel="prefetch" href="/study_blog/assets/js/15.9342324c.js"><link rel="prefetch" href="/study_blog/assets/js/16.1310006a.js"><link rel="prefetch" href="/study_blog/assets/js/17.b94b283d.js"><link rel="prefetch" href="/study_blog/assets/js/18.f7bd3752.js"><link rel="prefetch" href="/study_blog/assets/js/19.4f83ae72.js"><link rel="prefetch" href="/study_blog/assets/js/20.10e28f9e.js"><link rel="prefetch" href="/study_blog/assets/js/21.133ed4c6.js"><link rel="prefetch" href="/study_blog/assets/js/22.ea3da500.js"><link rel="prefetch" href="/study_blog/assets/js/23.90f06376.js"><link rel="prefetch" href="/study_blog/assets/js/24.7e0e6769.js"><link rel="prefetch" href="/study_blog/assets/js/25.76892a53.js"><link rel="prefetch" href="/study_blog/assets/js/26.a0ff0e69.js"><link rel="prefetch" href="/study_blog/assets/js/27.0e7a093f.js"><link rel="prefetch" href="/study_blog/assets/js/28.9e443cbf.js"><link rel="prefetch" href="/study_blog/assets/js/29.3555568a.js"><link rel="prefetch" href="/study_blog/assets/js/3.03532752.js"><link rel="prefetch" href="/study_blog/assets/js/30.b7e07863.js"><link rel="prefetch" href="/study_blog/assets/js/31.ecec9c8f.js"><link rel="prefetch" href="/study_blog/assets/js/32.2ba959f9.js"><link rel="prefetch" href="/study_blog/assets/js/33.0c26e454.js"><link rel="prefetch" href="/study_blog/assets/js/34.22f8a3a3.js"><link rel="prefetch" href="/study_blog/assets/js/35.ba45dd05.js"><link rel="prefetch" href="/study_blog/assets/js/36.b92c80eb.js"><link rel="prefetch" href="/study_blog/assets/js/37.466f0839.js"><link rel="prefetch" href="/study_blog/assets/js/38.ed111741.js"><link rel="prefetch" href="/study_blog/assets/js/39.02b875d0.js"><link rel="prefetch" href="/study_blog/assets/js/4.b5d9f4e7.js"><link rel="prefetch" href="/study_blog/assets/js/40.b5a19844.js"><link rel="prefetch" href="/study_blog/assets/js/5.c2d54515.js"><link rel="prefetch" href="/study_blog/assets/js/6.413eb2f7.js"><link rel="prefetch" href="/study_blog/assets/js/8.7aba858b.js"><link rel="prefetch" href="/study_blog/assets/js/9.9023b09e.js">
+    <link rel="stylesheet" href="/study_blog/assets/css/0.styles.26012ee8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/study_blog/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/study_blog/" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS语言特性</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study_blog/ES6/hoisting/" class="sidebar-link">JS专精-变量提升/函数</a></li><li><a href="/study_blog/ES6/lexicalenvironment/" class="sidebar-link">JS专精-执行上下文/函数</a></li><li><a href="/study_blog/ES6/closure/" class="sidebar-link">JS 专精-函数/闭包</a></li><li><a href="/study_blog/ES6/fibonacc/" class="sidebar-link">JS专精-递归/尾递归/记忆化/react的记忆化</a></li><li><a href="/study_blog/ES6/currying/" class="sidebar-link">JS专精-柯里化/闭包隐藏变量的原因</a></li><li><a href="/study_blog/ES6/eventhub/" class="sidebar-link">JS专精-EventHub/ts实现</a></li><li><a href="/study_blog/ES6/deepclone/" class="sidebar-link">JS专精-JSON格式/JSON对象/深拷贝/函数作为参数</a></li><li><a href="/study_blog/ES6/bind/" class="active sidebar-link">JS专精-实现bind/apply/call</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/study_blog/ES6/bind/#实现bind代码" class="sidebar-link">实现bind代码</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/bind/#支持-new-的-bind" class="sidebar-link">支持 new 的 bind</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/bind/#实现call" class="sidebar-link">实现call</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/bind/#实现apply" class="sidebar-link">实现apply</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/bind/#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/study_blog/ES6/promise/" class="sidebar-link">手写 Promise</a></li><li><a href="/study_blog/ES6/promise2/" class="sidebar-link">手写 Promise-重置版</a></li><li><a href="/study_blog/ES6/eventloop/" class="sidebar-link">浏览器的事件循环</a></li><li><a href="/study_blog/ES6/await/" class="sidebar-link">async</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网页API</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS生态</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>刷题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js专精-实现bind-apply-call"><a href="#js专精-实现bind-apply-call" class="header-anchor">#</a> JS专精-实现bind/apply/call</h1> <h2 id="实现bind代码"><a href="#实现bind代码" class="header-anchor">#</a> 实现bind代码</h2> <div class="language- extra-class"><pre class="language-text"><code>export default function myBind(context, ...args) {
+  const fn = this;
+  args = args ? args : [];
+  return function(...newFnArgs) {
+    return fn.call(context, ...args, ...newFnArgs);
+  };
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>let bind = Function.prototype.bind;
+bind.call(f1,this,arguments)
+</code></pre></div><ul><li>函数也是可以调用函数的，比如f1.bind()，自然bind的this就是函数</li> <li>bind是返回一个绑定好的函数</li> <li>参数一但传进来变成函数词法环境静态的一部分，不会改变的，所以达到了绑定的效果</li></ul> <h2 id="支持-new-的-bind"><a href="#支持-new-的-bind" class="header-anchor">#</a> 支持 new 的 bind</h2> <p>要让bind返回的函数支持new操作，new操作会做下面四件事</p> <ol><li>创建空对象obj</li> <li><code>obj.__proto__ = F1.prototype</code></li> <li>F1.call(obj)</li> <li>return obj</li></ol> <p>注意事项：</p> <ul><li>如果构造函数自带return，那么new的return obj不会实现</li> <li>对于 new 来说， bind 绑定的 this 不影响构造函数里的 this。</li> <li><code>let f1 = F1.bind(undefined,xxx)</code></li></ul> <p>我们现在要让 f1 支持 new：</p> <ul><li><code>new f1</code> 由于源代码是返回一个函数调用导致new的时候无法返回实例对象，所以我们要判断当f1函数（bind返回的函数）前加new时，要返回一个实例。</li> <li>我们根据new的四个过程发现f1.call(obj)和<code>obj.__proto__ = F1.prototype</code> 所以添加判断this instanceof newFn</li> <li>但是我们想要的是fn的原型而不是newFn的原型</li> <li>我们new的其实是newFn但是返回的却是new fn，根据new newFn来判断this instanceof newFn，判断成功返回new fn，new newFn只是缺少了四步new过程的最后一步而已。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Function.prototype.myBind = function (context, ...args) {
+    const fn = this
+    args = args ? args : []
+    return function newFn(...newFnArgs) {
+        if (this instanceof newFn) {
+            return new fn(...args, ...newFnArgs)
+        }
+        return fn.apply(context, [...args,...newFnArgs])
+    }
+}
+</code></pre></div><h2 id="实现call"><a href="#实现call" class="header-anchor">#</a> 实现call</h2> <p>this拿到f.call的f函数，context.this来调用函数</p> <div class="language- extra-class"><pre class="language-text"><code>    function myCall(context, ...args) {
+    context = context || window
+    args = args ? args : []
+    const key = Symbol()
+    context[key] = this
+    const result = context[key](...args)
+    delete context[key]
+    return result
+}
+</code></pre></div><h2 id="实现apply"><a href="#实现apply" class="header-anchor">#</a> 实现apply</h2> <div class="language- extra-class"><pre class="language-text"><code>    myApply = function myApply (context, args) {
+    context = context || window
+    args = args ? args : []
+    const key = Symbol()
+    context[key] = this
+    const result = context[key](...args)
+    delete context[key]
+    return result
+}
+</code></pre></div><p>因为context是别人传过来的</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <ul><li>call实现总结：this只有在调用时才知道，所以使用this拿到f，用context调用f即可===&gt;context[key] = f</li> <li>bind实现技术总结：利用参数传进来的this不会改变，利用call调用即可</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/study_blog/ES6/deepclone/" class="prev">
+        JS专精-JSON格式/JSON对象/深拷贝/函数作为参数
+      </a></span> <span class="next"><a href="/study_blog/ES6/promise/">
+        手写 Promise
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/study_blog/assets/js/app.fa73ec29.js" defer></script><script src="/study_blog/assets/js/2.c359b067.js" defer></script><script src="/study_blog/assets/js/7.546e37c0.js" defer></script>
+  </body>
+</html>

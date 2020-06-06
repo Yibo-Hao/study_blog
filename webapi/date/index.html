@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ISO 标准和 dayjs</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/study_blog/assets/css/0.styles.26012ee8.css" as="style"><link rel="preload" href="/study_blog/assets/js/app.fa73ec29.js" as="script"><link rel="preload" href="/study_blog/assets/js/2.c359b067.js" as="script"><link rel="preload" href="/study_blog/assets/js/40.b5a19844.js" as="script"><link rel="prefetch" href="/study_blog/assets/js/10.711088b9.js"><link rel="prefetch" href="/study_blog/assets/js/11.4bc7751b.js"><link rel="prefetch" href="/study_blog/assets/js/12.6bd1c5ed.js"><link rel="prefetch" href="/study_blog/assets/js/13.68deeced.js"><link rel="prefetch" href="/study_blog/assets/js/14.315144b3.js"><link rel="prefetch" href="/study_blog/assets/js/15.9342324c.js"><link rel="prefetch" href="/study_blog/assets/js/16.1310006a.js"><link rel="prefetch" href="/study_blog/assets/js/17.b94b283d.js"><link rel="prefetch" href="/study_blog/assets/js/18.f7bd3752.js"><link rel="prefetch" href="/study_blog/assets/js/19.4f83ae72.js"><link rel="prefetch" href="/study_blog/assets/js/20.10e28f9e.js"><link rel="prefetch" href="/study_blog/assets/js/21.133ed4c6.js"><link rel="prefetch" href="/study_blog/assets/js/22.ea3da500.js"><link rel="prefetch" href="/study_blog/assets/js/23.90f06376.js"><link rel="prefetch" href="/study_blog/assets/js/24.7e0e6769.js"><link rel="prefetch" href="/study_blog/assets/js/25.76892a53.js"><link rel="prefetch" href="/study_blog/assets/js/26.a0ff0e69.js"><link rel="prefetch" href="/study_blog/assets/js/27.0e7a093f.js"><link rel="prefetch" href="/study_blog/assets/js/28.9e443cbf.js"><link rel="prefetch" href="/study_blog/assets/js/29.3555568a.js"><link rel="prefetch" href="/study_blog/assets/js/3.03532752.js"><link rel="prefetch" href="/study_blog/assets/js/30.b7e07863.js"><link rel="prefetch" href="/study_blog/assets/js/31.ecec9c8f.js"><link rel="prefetch" href="/study_blog/assets/js/32.2ba959f9.js"><link rel="prefetch" href="/study_blog/assets/js/33.0c26e454.js"><link rel="prefetch" href="/study_blog/assets/js/34.22f8a3a3.js"><link rel="prefetch" href="/study_blog/assets/js/35.ba45dd05.js"><link rel="prefetch" href="/study_blog/assets/js/36.b92c80eb.js"><link rel="prefetch" href="/study_blog/assets/js/37.466f0839.js"><link rel="prefetch" href="/study_blog/assets/js/38.ed111741.js"><link rel="prefetch" href="/study_blog/assets/js/39.02b875d0.js"><link rel="prefetch" href="/study_blog/assets/js/4.b5d9f4e7.js"><link rel="prefetch" href="/study_blog/assets/js/5.c2d54515.js"><link rel="prefetch" href="/study_blog/assets/js/6.413eb2f7.js"><link rel="prefetch" href="/study_blog/assets/js/7.546e37c0.js"><link rel="prefetch" href="/study_blog/assets/js/8.7aba858b.js"><link rel="prefetch" href="/study_blog/assets/js/9.9023b09e.js">
+    <link rel="stylesheet" href="/study_blog/assets/css/0.styles.26012ee8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/study_blog/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/study_blog/" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS语言特性</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>网页API</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study_blog/webapi/date/" class="active sidebar-link">ISO 标准和 dayjs</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS生态</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>刷题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="iso-标准和-dayjs"><a href="#iso-标准和-dayjs" class="header-anchor">#</a> ISO 标准和 dayjs</h1> <div><h2>
+		定义
+	</h2> <p>
+		国际标准ISO 8601，是国际标准化组织的日期和时间的表示方法，目前是2004年12月1日发行的第三版“ISO8601:2004”以替代1998年与2000年的第二版
+	</p> <p><b>任何时间都可以写成ISO8601形式</b></p> <h3>
+		日期表示法
+	</h3> <p>
+		年由4位数字组成YYYY，或者带正负号的四或五位数字表示±<u>Y</u>YYYY。以公历公元1年为0001年，以公元前1年为0000年，公元前2年为-0001年，其他以此类推。应用其他纪年法要换算成公历，但如果发送和接受信息的双方有共同一致同意的其他纪年法，可以自行应用。
+	</p> <p>
+		月、日用两位数字表示：MM、DD。
+	</p> <p>
+		只使用数字为<b>基本格式</b>。使用短横线&quot;-&quot;间隔开年、月、日为<b>扩展格式</b>。
+	</p> <h3>
+		日历日期表示法
+	</h3> <p>
+		年为4位数，月为2位数，月中的日为2位数，日期（2020年5月12日）可表示为2020-<a href="https://zh.wikipedia.org/wiki/05%E6%9C%88" target="_blank">05</a>-<a href="https://zh.wikipedia.org/wiki/5%E6%9C%8812%E6%97%A5" target="_blank">12</a>，或2020<a href="https://zh.wikipedia.org/wiki/05%E6%9C%88" target="_blank">05</a><a href="https://zh.wikipedia.org/wiki/5%E6%9C%8812%E6%97%A5" target="_blank">12</a>。
+	</p> <h3>
+		顺序日期表示法
+	</h3> <p>
+		完全表示：可以将一年内的天的序数用3位数字表示，平年365天，闰年366天。如2004年5月3日可以表示为<b>2004-124</b>或<b>2004124</b></p> <h3>
+		星期日历表示法
+	</h3> <p>
+		可以用2位数表示年内第几个日历星期，再加上一位数表示日历星期内第几天，但日历星期前要加上一个大写字母W，如2004年5月3日可写成2004-W19-1或2004W191。但2005-W011是从2005年1月3日开始的，前几天属于上年的第53个日历星期。每个日历星期从星期一开始，星期日为第7天。
+	</p> <p>
+		第一个日历星期有以下四种等效说法： 1，本年度第一个星期四所在的星期； 2，1月4日所在的星期； 3，本年度第一个至少有4天在同一星期内的星期； 4，星期一在去年12月29日至今年1月4日以内的星期；
+	</p> <h3>
+		日历星期表示法
+	</h3> <p>
+		可以用2位数表示本年内第几个日历<a href="https://zh.wikipedia.org/wiki/%E6%98%9F%E6%9C%9F" target="_blank">星期</a>，但日历星期前要加上一个大写字母W。
+	</p> <p>
+		2004年第19个星期可写成：<b>2004-W19</b>或<b>2004W19</b>。
+	</p> <h3>
+		日历月表示法
+	</h3> <p>
+		2015年7月可写成：201507或<b>2015-07</b>。
+	</p> <h3>
+		日历年表示法
+	</h3> <p>
+		2015年可写成：<b>2015</b>。
+	</p> <h3>
+		日期时间表示法
+	</h3> <p>
+		只使用数字为基本格式。使用冒号&quot;:&quot;间隔开小时、分、秒的为扩展格式。小时、分和秒都用2位数表示。
+	</p> <p>
+		如果时间在零时区，并恰好与协调世界时相同，那么（不加空格地）在时间最后加一个大写字母Z。Z是相对协调世界时时间0偏移的代号。如下午2点30分5秒表示为14:30:05Z或143005Z；只表示小时和分，为1430Z或14:30Z；只表示小时，则为14Z或14Z。
+	</p> <p>
+		秒可以带小数
+	</p> <h3>
+		日期和时间的组合表示法
+	</h3> <p>
+		合并表示时，要在时间前面加一大写字母T，如要表示东八区时间2004年5月3日下午5点30分8秒，可以写成<b>2004-05-03T17:30:08+08:00</b>或<b>20040503T173008+08</b>。
+	</p> <h2>
+		JS的时间库
+	</h2> <p>
+		Date对象是 JavaScript 原生的时间库。它以国际标准时间（UTC）1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。
+	</p> <h3>
+		Data函数
+	</h3> <p>
+		Date对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。无论有没有参数，直接调用Date总是返回当前时间。
+	</p> <h3>
+		Data构造函数
+	</h3> <p>
+		对它使用new命令，会返回一个Date对象的实例。如果不加参数，实例代表的就是当前时间。返回的是一个字符串。
+	</p> <p>
+		Date对象可以接受多种格式的参数，返回一个该参数对应的时间实例。
+	</p> <p>
+		两个日期实例对象进行减法运算时，返回的是它们间隔的毫秒数；进行加法运算时，返回的是两个字符串连接而成的新字符串。
+	</p> <p><img src="https://user-gold-cdn.xitu.io/2020/3/31/17130b32e3507adb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload inited loaded"></p> <p>
+		Date 实例是一个对象
+	</p> <p>
+		但是Date实例求值的时候，默认调用的是toString()方法。这导致对Date实例求值，返回的是一个字符串，代表该实例对应的时间。
+	</p> <code><pre class="hljs bash"><span class="hljs-string">&quot;Tue Dec 01 2015 09:34:43 GMT+0800 (CST)&quot;</span><span class="copy-code-btn"></span></pre></code> <h3>
+		Data静态函数方法
+	</h3> <p>
+		Date.now方法返回当前时间距离时间零点
+	</p> <p>
+		Date.parse方法用来解析日期字符串，返回该时间距离时间零点的毫秒数。如果解析失败，返回NaN。
+	</p> <p>
+		Date.UTC方法接受年、月、日等变量作为参数，返回该时间距离时间零点
+	</p> <h3>
+		Data实例方法
+	</h3> <ul><li>
+			to类：从Date对象返回一个字符串，表示指定的时间。
+		</li> <li>
+			get类：获取Date对象的日期和时间。
+		</li> <li>
+			set类：设置Date对象的日期和时间。
+		</li></ul> <p>
+		挑几个重要的
+	</p> <ul><li>
+			toString方法返回一个完整的日期字符串。&quot;Tue Jan 01 2013 00:00:00 GMT+0800 (CST)&quot;
+		</li> <li>
+			toUTCString方法返回对应的 UTC 时间。&quot;Mon, 31 Dec 2012 16:00:00 GMT&quot;
+		</li> <li>
+			toISOString方法返回对应时间的 ISO8601 写法。&quot;2012-12-31T16:00:00.000Z&quot;，toISOString方法返回的总是 UTC 时区的时间。
+		</li> <li>
+			toDateString方法返回日期字符串（不含小时、分和秒）<br></li> <li>
+			toTimeString方法返回时间字符串（不含年月日）。
+		</li> <li>
+			set类改变时间，用来与当前时间做比较
+		</li></ul> <h2>
+		Dayjs
+	</h2> <p>
+		原生的API其实是一坨屎。我们使用一些轻量级库就行。
+	</p> <p>
+		Day.js 并没有对原生Date.prototype做任何修改， 而是给Date对象做了一层封装。
+	</p> <ul><li>
+			 dayjs() 将返回一个包含当前日期和时间的 Day.js 对象。
+		</li> <li>
+			dayjs(&quot;12-25-1995&quot;, &quot;MM-DD-YYYY&quot;)，不加格式只能解析ISO格式<br></li> <li>
+			dayjs('2019-01-25').format('DD/MM/YYYY') // '25/01/2019'
+		</li></ul></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/study_blog/ES6/await/" class="prev">
+        async
+      </a></span> <span class="next"><a href="/study_blog/KpDevelopment/css%20in%20react/">
+        React的CSS方案
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/study_blog/assets/js/app.fa73ec29.js" defer></script><script src="/study_blog/assets/js/2.c359b067.js" defer></script><script src="/study_blog/assets/js/40.b5a19844.js" defer></script>
+  </body>
+</html>

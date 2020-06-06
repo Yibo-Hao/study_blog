@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS专精-递归/尾递归/记忆化/react的记忆化</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/study_blog/assets/css/0.styles.26012ee8.css" as="style"><link rel="preload" href="/study_blog/assets/js/app.fa73ec29.js" as="script"><link rel="preload" href="/study_blog/assets/js/2.c359b067.js" as="script"><link rel="preload" href="/study_blog/assets/js/13.68deeced.js" as="script"><link rel="prefetch" href="/study_blog/assets/js/10.711088b9.js"><link rel="prefetch" href="/study_blog/assets/js/11.4bc7751b.js"><link rel="prefetch" href="/study_blog/assets/js/12.6bd1c5ed.js"><link rel="prefetch" href="/study_blog/assets/js/14.315144b3.js"><link rel="prefetch" href="/study_blog/assets/js/15.9342324c.js"><link rel="prefetch" href="/study_blog/assets/js/16.1310006a.js"><link rel="prefetch" href="/study_blog/assets/js/17.b94b283d.js"><link rel="prefetch" href="/study_blog/assets/js/18.f7bd3752.js"><link rel="prefetch" href="/study_blog/assets/js/19.4f83ae72.js"><link rel="prefetch" href="/study_blog/assets/js/20.10e28f9e.js"><link rel="prefetch" href="/study_blog/assets/js/21.133ed4c6.js"><link rel="prefetch" href="/study_blog/assets/js/22.ea3da500.js"><link rel="prefetch" href="/study_blog/assets/js/23.90f06376.js"><link rel="prefetch" href="/study_blog/assets/js/24.7e0e6769.js"><link rel="prefetch" href="/study_blog/assets/js/25.76892a53.js"><link rel="prefetch" href="/study_blog/assets/js/26.a0ff0e69.js"><link rel="prefetch" href="/study_blog/assets/js/27.0e7a093f.js"><link rel="prefetch" href="/study_blog/assets/js/28.9e443cbf.js"><link rel="prefetch" href="/study_blog/assets/js/29.3555568a.js"><link rel="prefetch" href="/study_blog/assets/js/3.03532752.js"><link rel="prefetch" href="/study_blog/assets/js/30.b7e07863.js"><link rel="prefetch" href="/study_blog/assets/js/31.ecec9c8f.js"><link rel="prefetch" href="/study_blog/assets/js/32.2ba959f9.js"><link rel="prefetch" href="/study_blog/assets/js/33.0c26e454.js"><link rel="prefetch" href="/study_blog/assets/js/34.22f8a3a3.js"><link rel="prefetch" href="/study_blog/assets/js/35.ba45dd05.js"><link rel="prefetch" href="/study_blog/assets/js/36.b92c80eb.js"><link rel="prefetch" href="/study_blog/assets/js/37.466f0839.js"><link rel="prefetch" href="/study_blog/assets/js/38.ed111741.js"><link rel="prefetch" href="/study_blog/assets/js/39.02b875d0.js"><link rel="prefetch" href="/study_blog/assets/js/4.b5d9f4e7.js"><link rel="prefetch" href="/study_blog/assets/js/40.b5a19844.js"><link rel="prefetch" href="/study_blog/assets/js/5.c2d54515.js"><link rel="prefetch" href="/study_blog/assets/js/6.413eb2f7.js"><link rel="prefetch" href="/study_blog/assets/js/7.546e37c0.js"><link rel="prefetch" href="/study_blog/assets/js/8.7aba858b.js"><link rel="prefetch" href="/study_blog/assets/js/9.9023b09e.js">
+    <link rel="stylesheet" href="/study_blog/assets/css/0.styles.26012ee8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/study_blog/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/study_blog/" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS语言特性</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study_blog/ES6/hoisting/" class="sidebar-link">JS专精-变量提升/函数</a></li><li><a href="/study_blog/ES6/lexicalenvironment/" class="sidebar-link">JS专精-执行上下文/函数</a></li><li><a href="/study_blog/ES6/closure/" class="sidebar-link">JS 专精-函数/闭包</a></li><li><a href="/study_blog/ES6/fibonacc/" class="active sidebar-link">JS专精-递归/尾递归/记忆化/react的记忆化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#递归实现" class="sidebar-link">递归实现</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#调用栈" class="sidebar-link">调用栈</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#优化递归-尾递归" class="sidebar-link">优化递归-尾递归</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#循环代替递归" class="sidebar-link">循环代替递归</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#记忆化" class="sidebar-link">记忆化</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#raect记忆化" class="sidebar-link">Raect记忆化</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/fibonacc/#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/study_blog/ES6/currying/" class="sidebar-link">JS专精-柯里化/闭包隐藏变量的原因</a></li><li><a href="/study_blog/ES6/eventhub/" class="sidebar-link">JS专精-EventHub/ts实现</a></li><li><a href="/study_blog/ES6/deepclone/" class="sidebar-link">JS专精-JSON格式/JSON对象/深拷贝/函数作为参数</a></li><li><a href="/study_blog/ES6/bind/" class="sidebar-link">JS专精-实现bind/apply/call</a></li><li><a href="/study_blog/ES6/promise/" class="sidebar-link">手写 Promise</a></li><li><a href="/study_blog/ES6/promise2/" class="sidebar-link">手写 Promise-重置版</a></li><li><a href="/study_blog/ES6/eventloop/" class="sidebar-link">浏览器的事件循环</a></li><li><a href="/study_blog/ES6/await/" class="sidebar-link">async</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网页API</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS生态</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>刷题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js专精-递归-尾递归-记忆化-react的记忆化"><a href="#js专精-递归-尾递归-记忆化-react的记忆化" class="header-anchor">#</a> JS专精-递归/尾递归/记忆化/react的记忆化</h1> <h2 id="递归实现"><a href="#递归实现" class="header-anchor">#</a> 递归实现</h2> <div class="language- extra-class"><pre class="language-text"><code>function fibonacc(n) {
+  if (n === 0) {
+    n = 0;
+  } else if (n === 1) {
+    n =  1;
+  } else {
+    n =  fibonacc(n - 1) + fibonacc(n - 2);
+  }
+  return n
+}
+</code></pre></div><h2 id="调用栈"><a href="#调用栈" class="header-anchor">#</a> 调用栈</h2> <ul><li>JS引擎解析出全局上下文和可执行代码</li> <li>然后把全局上下文压入栈，执行可执行代码遇到函数调用</li> <li>把函数解析成同样两部分，把函数上下文压入栈</li> <li>执行完之后弹栈更新全局上下文</li> <li>递归就是不停地压栈，压到顶之后开始弹并且更新上一级上下文。</li> <li>注意只压上下文</li></ul> <h2 id="优化递归-尾递归"><a href="#优化递归-尾递归" class="header-anchor">#</a> 优化递归-尾递归</h2> <div class="language- extra-class"><pre class="language-text"><code>function fibonacc2(n) {
+  return fibonacc3(2, n, 1, 0);
+}
+function fibonacc3(start, end, prev1, prev2) {
+  if (start === end) {
+    start = prev1 + prev2;
+  } else {
+    fibonacc3(start + 1, end, prev1 + prev2, prev2);
+  }
+}
+</code></pre></div><p>注意单纯地把递归放到函数末尾并不是尾递归看下面代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function fibonacc(n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return  1;
+  } else {
+    return  fibonacc(n - 1) + fibonacc(n - 2);
+  }
+}
+</code></pre></div><p>fibonacc(n-1)结束后仍需要它的返回值来进行相加，所以必须保存fibonacc(n)的环境以供处理返回值。</p> <ul><li><strong>尾递归：进入下一个函数不再需要上一个函数的环境了，得出结果以后直接返回。</strong></li> <li><strong>非尾递归，下一个函数结束以后此函数还有后续，所以必须保存本身的环境以供处理返回值。</strong></li> <li>尾递归通常会多一个参数，这个参数是上一次调用函数得到的结果，尾递归每次调用都在收集结果</li></ul> <p>但是JS就算下一个函数不再需要上一个函数的环境，仍然会压栈，所以JS没有尾递归操作。</p> <h2 id="循环代替递归"><a href="#循环代替递归" class="header-anchor">#</a> 循环代替递归</h2> <div class="language- extra-class"><pre class="language-text"><code>function fibonacc4(n) {
+  let fibArray = [0, 1];
+  for (let i = 0; i &lt;= n - 2; i++) {
+    fibArray[i + 2] = fibArray[i + 1] + fibArray[i];
+  }
+  return fibArray[fibArray.length - 1];
+}
+</code></pre></div><h2 id="记忆化"><a href="#记忆化" class="header-anchor">#</a> 记忆化</h2> <p>虽然上一段代码是用数组实现的，也把算下来的值记录下来了，但这不是记忆化，比如说一次n是5另一次是4,第二次仍需要完整地计算一遍</p> <div class="language- extra-class"><pre class="language-text"><code>function memozi(fn) {
+  const cache = {};
+  return function(n) {
+    if (cache[n] == null) {
+      cache[n] = fn(n);
+      return cache[n];
+    } else {
+      return cache[n];
+    }
+  };
+}
+
+const fibfn = memozi(function (n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  } else {
+    return fibfn(n - 1) + fibfn(n - 2);
+  }
+});
+</code></pre></div><ul><li>使用一个哈希表完整地记录下来所有的计算结果</li> <li>计算第n个，就要去记忆里去找fibfn(n - 1) + fibfn(n - 2)</li> <li>我们使用memozi返回的函数即可，如果这个函数在记忆查找无果那么就会调用memozi的回调函数来进行计算</li> <li>记忆化：当memozi里面的回调没有变化时，就会从记忆中寻找值</li> <li>记忆化同样是使用闭包完成的，memozi的作用就是创建并隐藏一个cache，返回一个函数fn，每次调用fn并不会重新创建cache只是修改cache，但是每次重新调用memozi会重新创建cache</li></ul> <h2 id="raect记忆化"><a href="#raect记忆化" class="header-anchor">#</a> Raect记忆化</h2> <p>上面记忆化代码是否很像React的memo钩子。</p> <p>React每次数据改变父组件函数会重新执行，而里面的子组件函数也会重新运行。虽然DOM没有更新但是子组件里面的代码会重新执行（得出的DOM仍和上次一样所以没有更新页面）。</p> <div class="language- extra-class"><pre class="language-text"><code>child2 = React.memo(child)
+</code></pre></div><p>但是</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;child2 onClick = {()=&gt;{}}/&gt;
+</code></pre></div><p>即使已经记忆化，点击child2时child2仍会重新执行，因为onClick的函数每次点击时就会创建新的函数，child2认为不一样了就会重新执行</p> <div class="language- extra-class"><pre class="language-text"><code>let x = ()=&gt;{}
+&lt;child2 onClick = {x}/&gt;
+</code></pre></div><p>这样仍会重新执行child2，因为父组件会重新执行，每次都会重新声明x。</p> <p>我们需要函数的记忆化：我们们使用n来作为记忆索引，只要n不变那么这个函数就不变</p> <div class="language- extra-class"><pre class="language-text"><code>let x = React.useCallback(()=&gt;{},[n])
+</code></pre></div><h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <ul><li>fibonacc的记忆化依靠n（第几个数）来索引</li> <li>React索引依靠我们提供数据来索引</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/study_blog/ES6/closure/" class="prev">
+        JS 专精-函数/闭包
+      </a></span> <span class="next"><a href="/study_blog/ES6/currying/">
+        JS专精-柯里化/闭包隐藏变量的原因
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/study_blog/assets/js/app.fa73ec29.js" defer></script><script src="/study_blog/assets/js/2.c359b067.js" defer></script><script src="/study_blog/assets/js/13.68deeced.js" defer></script>
+  </body>
+</html>

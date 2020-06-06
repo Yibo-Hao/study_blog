@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS 专精-函数/闭包</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/study_blog/assets/css/0.styles.26012ee8.css" as="style"><link rel="preload" href="/study_blog/assets/js/app.fa73ec29.js" as="script"><link rel="preload" href="/study_blog/assets/js/2.c359b067.js" as="script"><link rel="preload" href="/study_blog/assets/js/8.7aba858b.js" as="script"><link rel="prefetch" href="/study_blog/assets/js/10.711088b9.js"><link rel="prefetch" href="/study_blog/assets/js/11.4bc7751b.js"><link rel="prefetch" href="/study_blog/assets/js/12.6bd1c5ed.js"><link rel="prefetch" href="/study_blog/assets/js/13.68deeced.js"><link rel="prefetch" href="/study_blog/assets/js/14.315144b3.js"><link rel="prefetch" href="/study_blog/assets/js/15.9342324c.js"><link rel="prefetch" href="/study_blog/assets/js/16.1310006a.js"><link rel="prefetch" href="/study_blog/assets/js/17.b94b283d.js"><link rel="prefetch" href="/study_blog/assets/js/18.f7bd3752.js"><link rel="prefetch" href="/study_blog/assets/js/19.4f83ae72.js"><link rel="prefetch" href="/study_blog/assets/js/20.10e28f9e.js"><link rel="prefetch" href="/study_blog/assets/js/21.133ed4c6.js"><link rel="prefetch" href="/study_blog/assets/js/22.ea3da500.js"><link rel="prefetch" href="/study_blog/assets/js/23.90f06376.js"><link rel="prefetch" href="/study_blog/assets/js/24.7e0e6769.js"><link rel="prefetch" href="/study_blog/assets/js/25.76892a53.js"><link rel="prefetch" href="/study_blog/assets/js/26.a0ff0e69.js"><link rel="prefetch" href="/study_blog/assets/js/27.0e7a093f.js"><link rel="prefetch" href="/study_blog/assets/js/28.9e443cbf.js"><link rel="prefetch" href="/study_blog/assets/js/29.3555568a.js"><link rel="prefetch" href="/study_blog/assets/js/3.03532752.js"><link rel="prefetch" href="/study_blog/assets/js/30.b7e07863.js"><link rel="prefetch" href="/study_blog/assets/js/31.ecec9c8f.js"><link rel="prefetch" href="/study_blog/assets/js/32.2ba959f9.js"><link rel="prefetch" href="/study_blog/assets/js/33.0c26e454.js"><link rel="prefetch" href="/study_blog/assets/js/34.22f8a3a3.js"><link rel="prefetch" href="/study_blog/assets/js/35.ba45dd05.js"><link rel="prefetch" href="/study_blog/assets/js/36.b92c80eb.js"><link rel="prefetch" href="/study_blog/assets/js/37.466f0839.js"><link rel="prefetch" href="/study_blog/assets/js/38.ed111741.js"><link rel="prefetch" href="/study_blog/assets/js/39.02b875d0.js"><link rel="prefetch" href="/study_blog/assets/js/4.b5d9f4e7.js"><link rel="prefetch" href="/study_blog/assets/js/40.b5a19844.js"><link rel="prefetch" href="/study_blog/assets/js/5.c2d54515.js"><link rel="prefetch" href="/study_blog/assets/js/6.413eb2f7.js"><link rel="prefetch" href="/study_blog/assets/js/7.546e37c0.js"><link rel="prefetch" href="/study_blog/assets/js/9.9023b09e.js">
+    <link rel="stylesheet" href="/study_blog/assets/css/0.styles.26012ee8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/study_blog/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/study_blog/" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS语言特性</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study_blog/ES6/hoisting/" class="sidebar-link">JS专精-变量提升/函数</a></li><li><a href="/study_blog/ES6/lexicalenvironment/" class="sidebar-link">JS专精-执行上下文/函数</a></li><li><a href="/study_blog/ES6/closure/" class="active sidebar-link">JS 专精-函数/闭包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#函数的影响因素" class="sidebar-link">函数的影响因素</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#定义时的环境" class="sidebar-link">定义时的环境</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#闭包" class="sidebar-link">闭包</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#闭包的作用" class="sidebar-link">闭包的作用</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#this" class="sidebar-link">this</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#小结" class="sidebar-link">小结</a></li><li class="sidebar-sub-header"><a href="/study_blog/ES6/closure/#三种-this" class="sidebar-link">三种 this</a></li></ul></li><li><a href="/study_blog/ES6/fibonacc/" class="sidebar-link">JS专精-递归/尾递归/记忆化/react的记忆化</a></li><li><a href="/study_blog/ES6/currying/" class="sidebar-link">JS专精-柯里化/闭包隐藏变量的原因</a></li><li><a href="/study_blog/ES6/eventhub/" class="sidebar-link">JS专精-EventHub/ts实现</a></li><li><a href="/study_blog/ES6/deepclone/" class="sidebar-link">JS专精-JSON格式/JSON对象/深拷贝/函数作为参数</a></li><li><a href="/study_blog/ES6/bind/" class="sidebar-link">JS专精-实现bind/apply/call</a></li><li><a href="/study_blog/ES6/promise/" class="sidebar-link">手写 Promise</a></li><li><a href="/study_blog/ES6/promise2/" class="sidebar-link">手写 Promise-重置版</a></li><li><a href="/study_blog/ES6/eventloop/" class="sidebar-link">浏览器的事件循环</a></li><li><a href="/study_blog/ES6/await/" class="sidebar-link">async</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网页API</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS生态</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>刷题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="js-专精-函数-闭包"><a href="#js-专精-函数-闭包" class="header-anchor">#</a> JS 专精-函数/闭包</h1> <h2 id="函数的影响因素"><a href="#函数的影响因素" class="header-anchor">#</a> 函数的影响因素</h2> <blockquote><p>重点：所有函数的问题都可以归结到这两个因素上</p></blockquote> <ul><li>定义时输入的参数 params</li> <li>定义时的环境 env</li></ul> <h2 id="定义时的环境"><a href="#定义时的环境" class="header-anchor">#</a> 定义时的环境</h2> <p>根据 JS 的词法环境，函数的词法环境中的外部引用是函数在定义时的环境而不是调用时的环境，<strong>函数调用时才会创建函数词法环境 t</strong></p> <div class="language- extra-class"><pre class="language-text"><code>let x = 'x'
+let a = '1'
+function f1(x){
+    return x + a
+};
+{
+    let a = '2'
+    f1('x') //值为&quot;x+1&quot;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function multiply(e, f) {
+ var g = 20;
+ return e * f * g;
+}
+multiply(20, 30);//此时创建的词法环境如下
+
+FunctionExectionContext = {
+  LexicalEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Declarative&quot;,
+      // 标识符在这里绑定
+      Arguments: { 0: 20, 1: 30, length: 2 },
+    },
+    outer: &lt;GlobalLexicalEnvironment&gt;,
+  ThisBinding: &lt;Global Object or undefined&gt;,
+},
+VariableEnvironment: {
+  EnvironmentRecord: {
+    Type: &quot;Declarative&quot;,
+        // 标识符在这里绑定
+        g: undefined
+  },
+  outer: &lt;GlobalLexicalEnvironment&gt;,
+      ThisBinding: &lt;Global Object or undefined&gt;
+}
+}
+</code></pre></div><p>那么我们看下面代码：</p> <div class="language- extra-class"><pre class="language-text"><code>let x = 'x'
+let a = '1'
+function f1(x){
+    return x + a
+};
+a = &quot;2&quot;
+{
+    let a = '2'
+    f1('x') //值为&quot;x+2&quot;
+}
+</code></pre></div><p>此时由于在函数调用之前，所以全局词法环境更新了，导致函数词法环境的外部引用更新了</p> <h2 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h2> <p>并不是所有语言都会有闭包这种操作（函数访问外部变量），ruby 就不允许。</p> <div class="language- extra-class"><pre class="language-text"><code>for(var i=0;i&lt;6;i++){
+    setTimeout(()=&gt;console.1og(i),1000) // 箭头函数访问了i
+}
+</code></pre></div><p>函数执行时词法环境的外部引用是全局词法环境，执行时 i 已经更新到了 6。也可以简单理解为始终只有一个 i，深刻理解就是函数的词法环境中的外部引用始终是同一个词法环境</p> <div class="language- extra-class"><pre class="language-text"><code>for(let i=0;i&lt;6;i++){
+    setTimeout(()=&gt;console.1og(i),1000) // 箭头函数访问了i
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>for(let i=0;i&lt;6;i++){
+    let i = 隐藏作用域中的i // 看这里看这里看这里
+    setTimeout(()=&gt;console.1og(i),1000) // 箭头函数访问了i
+}
+</code></pre></div><ol><li>for 循环的小括号是一个作用域，而花括号又是一个作用域，而小括号的作用域是包裹住了大括号作用域的。</li> <li>for( let i = 0; i&lt; 5; i++) { 循环体 } 在每次执行循环体之前，JS 引擎会把 i 在循环体的上下文中重新声明及初始化一次。</li> <li>所以函数上下文的词法环境中的外部引用不是同一个词法环境</li> <li>块级上下文和函数上下文创建是一样的</li></ol> <h2 id="闭包的作用"><a href="#闭包的作用" class="header-anchor">#</a> 闭包的作用</h2> <ul><li>闭包可以维持一个变量不死，但不能维持这个变量的值。</li> <li>对象是穷人的闭包，对象也可以来维持住一个变量</li> <li>如果一门语言不支持闭包，你可以用对象代理</li> <li>闭包是穷人的对象</li> <li>如果一门语言不支持对象，你可以用闭包代理</li></ul> <h2 id="this"><a href="#this" class="header-anchor">#</a> this</h2> <p>在讲 this 之前回忆函数的声明方式，</p> <ol><li>new Function</li> <li>function f(){}</li> <li>let a = function(){}</li> <li>let a = ()=&gt;{}</li></ol> <p>前两种会在词法环境里被声明成函数。而后两种则是变量只是赋值而已。</p> <p><strong>根据之前的词法环境分析法</strong>在函数调用时才会创建函数上下文，上下文里的词法环境里的 this 绑定，才会确定 this 的值。箭头函数没有 this 只是定义时的 this。this 和外部引用一样是会更新的。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>现在我们回过头来看函数的两大因素，env 和 params，对应函数词法。我们得出 this 和外部引用都属于环境是会改变的，而参数一但传入就不会改变。这里的改变不改变只是说函数调用之前而不是函数调用时。</p> <h2 id="三种-this"><a href="#三种-this" class="header-anchor">#</a> 三种 this</h2> <ul><li>fn(1,2) ----window</li> <li>obj.method('hi') ---obj</li> <li>array<a href="'hi'">0</a> 等价于 array.0() ---array</li></ul> <p>重点：this 只有在调用时才会确定</p> <p>window.length 就是浏览器窗口和 iframe 的个数，arguments.length 表示的是实际上向函数传入了多少个参数,这个数字可以比形参数量大,也可以比形参数量</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/study_blog/ES6/lexicalenvironment/" class="prev">
+        JS专精-执行上下文/函数
+      </a></span> <span class="next"><a href="/study_blog/ES6/fibonacc/">
+        JS专精-递归/尾递归/记忆化/react的记忆化
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/study_blog/assets/js/app.fa73ec29.js" defer></script><script src="/study_blog/assets/js/2.c359b067.js" defer></script><script src="/study_blog/assets/js/8.7aba858b.js" defer></script>
+  </body>
+</html>

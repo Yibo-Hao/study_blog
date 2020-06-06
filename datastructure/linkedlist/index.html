@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>链表</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/study_blog/assets/css/0.styles.26012ee8.css" as="style"><link rel="preload" href="/study_blog/assets/js/app.fa73ec29.js" as="script"><link rel="preload" href="/study_blog/assets/js/2.c359b067.js" as="script"><link rel="preload" href="/study_blog/assets/js/31.ecec9c8f.js" as="script"><link rel="prefetch" href="/study_blog/assets/js/10.711088b9.js"><link rel="prefetch" href="/study_blog/assets/js/11.4bc7751b.js"><link rel="prefetch" href="/study_blog/assets/js/12.6bd1c5ed.js"><link rel="prefetch" href="/study_blog/assets/js/13.68deeced.js"><link rel="prefetch" href="/study_blog/assets/js/14.315144b3.js"><link rel="prefetch" href="/study_blog/assets/js/15.9342324c.js"><link rel="prefetch" href="/study_blog/assets/js/16.1310006a.js"><link rel="prefetch" href="/study_blog/assets/js/17.b94b283d.js"><link rel="prefetch" href="/study_blog/assets/js/18.f7bd3752.js"><link rel="prefetch" href="/study_blog/assets/js/19.4f83ae72.js"><link rel="prefetch" href="/study_blog/assets/js/20.10e28f9e.js"><link rel="prefetch" href="/study_blog/assets/js/21.133ed4c6.js"><link rel="prefetch" href="/study_blog/assets/js/22.ea3da500.js"><link rel="prefetch" href="/study_blog/assets/js/23.90f06376.js"><link rel="prefetch" href="/study_blog/assets/js/24.7e0e6769.js"><link rel="prefetch" href="/study_blog/assets/js/25.76892a53.js"><link rel="prefetch" href="/study_blog/assets/js/26.a0ff0e69.js"><link rel="prefetch" href="/study_blog/assets/js/27.0e7a093f.js"><link rel="prefetch" href="/study_blog/assets/js/28.9e443cbf.js"><link rel="prefetch" href="/study_blog/assets/js/29.3555568a.js"><link rel="prefetch" href="/study_blog/assets/js/3.03532752.js"><link rel="prefetch" href="/study_blog/assets/js/30.b7e07863.js"><link rel="prefetch" href="/study_blog/assets/js/32.2ba959f9.js"><link rel="prefetch" href="/study_blog/assets/js/33.0c26e454.js"><link rel="prefetch" href="/study_blog/assets/js/34.22f8a3a3.js"><link rel="prefetch" href="/study_blog/assets/js/35.ba45dd05.js"><link rel="prefetch" href="/study_blog/assets/js/36.b92c80eb.js"><link rel="prefetch" href="/study_blog/assets/js/37.466f0839.js"><link rel="prefetch" href="/study_blog/assets/js/38.ed111741.js"><link rel="prefetch" href="/study_blog/assets/js/39.02b875d0.js"><link rel="prefetch" href="/study_blog/assets/js/4.b5d9f4e7.js"><link rel="prefetch" href="/study_blog/assets/js/40.b5a19844.js"><link rel="prefetch" href="/study_blog/assets/js/5.c2d54515.js"><link rel="prefetch" href="/study_blog/assets/js/6.413eb2f7.js"><link rel="prefetch" href="/study_blog/assets/js/7.546e37c0.js"><link rel="prefetch" href="/study_blog/assets/js/8.7aba858b.js"><link rel="prefetch" href="/study_blog/assets/js/9.9023b09e.js">
+    <link rel="stylesheet" href="/study_blog/assets/css/0.styles.26012ee8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/study_blog/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/study_blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/study_blog/ambition/2020/" class="nav-link">
+  日记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/study_blog/" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据结构</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study_blog/datastructure/base/" class="sidebar-link">基础</a></li><li><a href="/study_blog/datastructure/queue/" class="sidebar-link">队列</a></li><li><a href="/study_blog/datastructure/stack/" class="sidebar-link">栈</a></li><li><a href="/study_blog/datastructure/linkedlist/" class="active sidebar-link">链表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#写在前面" class="sidebar-link">写在前面</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#线性表存储结构" class="sidebar-link">线性表存储结构</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#数组的缺陷" class="sidebar-link">数组的缺陷</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#链表的基本概念" class="sidebar-link">链表的基本概念</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#头结点和头指针" class="sidebar-link">头结点和头指针</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#链表的基本操作" class="sidebar-link">链表的基本操作</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#链表的javascript实现" class="sidebar-link">链表的JavaScript实现</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#双向链表" class="sidebar-link">双向链表</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#循环链表" class="sidebar-link">循环链表</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#循环链表解决实际问题" class="sidebar-link">循环链表解决实际问题</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#引入头结点" class="sidebar-link">引入头结点</a></li><li class="sidebar-sub-header"><a href="/study_blog/datastructure/linkedlist/#整表删除" class="sidebar-link">整表删除</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS语言特性</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网页API</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS生态</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>刷题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="链表"><a href="#链表" class="header-anchor">#</a> 链表</h1> <h2 id="写在前面"><a href="#写在前面" class="header-anchor">#</a> 写在前面</h2> <p>数据结构就是各数据元素之间的逻辑关系，大致分为集合关系，线性关系，树关系，图关系</p> <h2 id="线性表存储结构"><a href="#线性表存储结构" class="header-anchor">#</a> 线性表存储结构</h2> <p>线性表在内存中的两种数据结构</p> <ul><li>链式存储</li> <li>顺序存储，静态，动态</li></ul> <h2 id="数组的缺陷"><a href="#数组的缺陷" class="header-anchor">#</a> 数组的缺陷</h2> <p>在很多编程语言中，数组的长度是固定的，所以当数组已被数据填满时，再要加入新的元素就会非常困难。在数组中，添加和删
+除元素也很麻烦，因为需要将数组中的其他元素向前或向后平移，以反映数组刚刚进行了
+添加或删除操作。</p> <p>JavaScript 中数组的主要问题是，它们被实现成了对象，与其他语言的数组相比，效率很低。</p> <p>除了对数据的随机访问，链表几乎可以用在任何可以使用一维数组的情况中。</p> <h2 id="链表的基本概念"><a href="#链表的基本概念" class="header-anchor">#</a> 链表的基本概念</h2> <ul><li>为了表示数据元素与后继数据元素之间的逻辑关系，对数据元素来说不仅要存储本身的数据还要存储后继元素的位置。</li> <li>分别称为数据域和指针域，两部分合起来称为结点</li> <li>数据元素就是结点，一组结点组成的集合称为数据对象</li> <li>我们把第一个结点的位置叫做头指针，为了更加方便的操作链表会在单链表的第一个结点前附加一个结点称为头结点，头结点的数据域不存储任何东西，头结点可以没有。</li></ul> <p>链表是由一组结点组成的集合。每个结点都使用一个对象的引用指向它的后继。指向另一
+个结点的引用叫做链。（一个变量存了其他变量的地址就叫对其他变量的引用）</p> <h2 id="头结点和头指针"><a href="#头结点和头指针" class="header-anchor">#</a> 头结点和头指针</h2> <ul><li>有了头结点，对第一个元素结点前插入结点和删除第一结点的操作和其他操作统一了。</li> <li>头结点不是必要要素</li> <li>链表中第一个结点的存储位置叫做头指针</li></ul> <h2 id="链表的基本操作"><a href="#链表的基本操作" class="header-anchor">#</a> 链表的基本操作</h2> <ul><li>找到值对应的结点 find(item)</li> <li>找到值对应的前一个结点 findPrevious(item)</li> <li>在值后面插入结点 insert(element,item)</li> <li>移除值对应的结点 remove(item)</li></ul> <h2 id="链表的javascript实现"><a href="#链表的javascript实现" class="header-anchor">#</a> 链表的JavaScript实现</h2> <p>每一个node为一个对象，因为js语言的实现，对象赋值，赋值的是地址</p> <div class="language- extra-class"><pre class="language-text"><code>function Node(element) {
+  this.element = element;
+  this.next = null;
+}
+function LinkedList(head) {
+  this.head = new Node(head);
+  this.find = find;
+  this.insert = insert;
+  this.remove = remove;
+  this.findPrevious = findPrevious;
+  this.travel = travel()
+}
+function find(item) {
+  let currNode = this.head;
+  while (currNode.element !== item) {
+    currNode = currNode.next;
+  }
+  return currNode;
+}
+function insert(element, item) {
+  let newNode = new Node(element);
+  let current = this.find(item);
+  newNode.next = current.next;
+  current.next = newNode;
+}
+function remove(item) {
+  let preNode = this.findPrevious(item);
+  if (preNode) {
+    preNode.next = preNode.next.next;
+  }
+}
+function findPrevious(item) {
+  let currNode = this.head;
+  while (currNode.next &amp;&amp; currNode.next.element !== item) {
+    currNode = currNode.next;
+  }
+  return currNode;
+}
+function travel(callback) {
+  let currNode = this.head;
+  while (currNode !== null) {
+    callback(currNode);
+    currNode = currNode.next;
+  }
+}
+
+</code></pre></div><h2 id="双向链表"><a href="#双向链表" class="header-anchor">#</a> 双向链表</h2> <p>管从链表的头结点遍历到尾结点很简单，但反过来，从后向前遍历则没那么简单。通过
+给 Node 对象增加一个属性，该属性存储指向前驱结点的链接。</p> <div class="language- extra-class"><pre class="language-text"><code>function DbNode(element) {
+  this.element = element;
+  this.next = null;
+  this.previous = null;
+}
+function DbLinkedList(head) {
+  this.head = new DbNode(head);
+  this.insert = insert;
+  this.find = find;
+  this.remove = remove;
+}
+function insert(element, item) {
+  let newNode = new DbNode(element);
+  let current = find(item);
+  newNode.next = current.next;
+  newNode.previous = current;
+  current.next = newNode;
+}
+function find(item) {
+  let currNode = this.head;
+  while (currNode.element !== item) {
+    currNode = currNode.next;
+  }
+  return currNode;
+}
+function remove(item) {
+  let currNode = find(item);
+  if (currNode !== null) {
+    currNode.previous.next = currNode.next;
+    currNode.next.previous = currNode.previous;
+  }
+}
+</code></pre></div><h2 id="循环链表"><a href="#循环链表" class="header-anchor">#</a> 循环链表</h2> <p>循环链表和单向链表相似，结点类型都是一样的。唯一的区别是，在创建循环链表时，让
+其头结点的 next 属性指向它本身。</p> <div class="language- extra-class"><pre class="language-text"><code>function CircularLinkedList(head) {
+  this.head = new Node(head);
+  this.head.next = this.head;
+}
+</code></pre></div><p>加一行代码就可以解决,travel方法会死循环,remove方法也要考虑到移除头结点要考虑到this.head始终存在的问题。</p> <h2 id="循环链表解决实际问题"><a href="#循环链表解决实际问题" class="header-anchor">#</a> 循环链表解决实际问题</h2> <p>传说在公元 1 世纪的犹太战争中，犹太历史学家弗拉维奥·约瑟夫斯和他的 10 个同胞
+被罗马士兵包围。犹太士兵决定宁可自杀也不做俘虏，于是商量出了一个自杀方案。他
+们围成一个圈，从一个人开始，数到第三个人时将第三个人杀死，然后再数，直到杀光
+所有人。约瑟夫和另外一个人决定不参加这个疯狂的游戏，他们快速地计算出了两个位
+置，站在那里得以幸存。写一段程序将 n 个人围成一圈，并且第 m 个人会被杀掉，计算
+一圈人中哪两个人最后会存活。使用循环链表解决该问题。</p> <div class="language- extra-class"><pre class="language-text"><code>function Node(element) {
+  this.element = element;
+  this.next = null;
+}
+function LinkedList(head) {
+  this.head = new Node(head);
+  this.head.next = this.head;
+  this.find = find;
+  this.insert = insert;
+  this.remove = remove;
+  this.findPrevious = findPrevious;
+  this.travel = travel;
+  this.advance = advance;
+}
+function find(item) {
+  let currNode = this.head;
+  while (currNode.element !== item) {
+    currNode = currNode.next;
+  }
+  return currNode;
+}
+function insert(element, item) {
+  let newNode = new Node(element);
+  let current = this.find(item);
+  newNode.next = current.next;
+  current.next = newNode;
+}
+function remove(item) {
+  let preNode = this.findPrevious(item);
+  if (preNode) {
+    if (this.find(item) === this.head) {
+      this.head = this.head.next;
+      preNode.next = this.head;
+      return;
+    }
+    preNode.next = preNode.next.next;
+  }
+}
+function findPrevious(item) {
+  let currNode = this.head;
+  while (currNode.next &amp;&amp; currNode.next.element !== item) {
+    currNode = currNode.next;
+  }
+  return currNode;
+}
+function travel(callback) {
+  let currNode = this.head;
+  do {
+    console.log(currNode.element);
+    callback(currNode);
+    currNode = currNode.next;
+  } while (currNode.element !== this.head.element);
+}
+function advance(n) {
+  let currNode = this.head;
+  while (n &gt; 0) {
+    currNode = currNode.next;
+    n = n - 1;
+  }
+  return currNode;
+}
+
+function code() {
+  let list = new LinkedList(1);
+  let length = 1;
+  let n = 2;
+  for (let i = 1; i &lt; 10; i++) {
+    list.insert(i + 1, i);
+    length += 1;
+  }
+  while (length &gt; 3) {
+    list.remove(list.advance(n).element);
+    n += 2;
+    length -= 1;
+  }
+}
+code();
+</code></pre></div><h2 id="引入头结点"><a href="#引入头结点" class="header-anchor">#</a> 引入头结点</h2> <div class="language- extra-class"><pre class="language-text"><code>function LinkedList() {
+    this.head = new Node(new Symbol());
+}
+</code></pre></div><p>删除第一个元素结点也统一了</p> <p>在引入头结点之前没有办法做到删除第一个结点，具体看remove代码，现在我们可以了因为this.head不会永远不会被删除。</p> <h2 id="整表删除"><a href="#整表删除" class="header-anchor">#</a> 整表删除</h2> <ul><li>在c语言中没有垃圾回收机制，只能手动删除或者程序结束回收</li> <li>但是我们浏览器有回收机制，对象不被引用就被回收了，把代表链表的变量赋值为null，直接清零。</li> <li>a = new LinkedList，a并不是头结点，a.head才是头结点，一般来说a和a.head都是不会被删除的。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/study_blog/datastructure/stack/" class="prev">
+        栈
+      </a></span> <span class="next"><a href="/study_blog/algorithm/time/">
+        算法的复杂度分析
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/study_blog/assets/js/app.fa73ec29.js" defer></script><script src="/study_blog/assets/js/2.c359b067.js" defer></script><script src="/study_blog/assets/js/31.ecec9c8f.js" defer></script>
+  </body>
+</html>
